@@ -383,11 +383,11 @@
         },
         "sense-energy": {
             "hashes": [
-                "sha256:04964d8aa67cd557ac07667c0a2cab73e9b1cd7d46a1394b50f88490c62648a7",
-                "sha256:452fe679560976a5ae6c331f8d4c4f04b78ba660bd9dc5f150052c6d3dc6a240"
+                "sha256:7357db170ecf10479d22f447cb7a34c4bc2eb6b41047a6a8171d33ccf685a138",
+                "sha256:b02e45c220818b1620c1788e4dbf61c62a0f059f76d158a553dbb97dd943ad6b"
             ],
             "index": "pypi",
-            "version": "==0.10.4"
+            "version": "==0.11.1"
         },
         "setuptools": {
             "hashes": [
