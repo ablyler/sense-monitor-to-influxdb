@@ -4,8 +4,17 @@ name: CI
 
 # Controls when the action will run. 
 on:
+  # monday at 11:07 UTC
+  schedule:
+    - cron: "7 11 * * 1"
   push:
-    branches: [ main ]
+    branches:
+      - "**"
+    tags:
+      - "v*.*.*"
+  pull_request:
+    branches:
+      - "main"
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -17,38 +26,33 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Prepare
-        id: prep
-        run: |
-          DOCKER_IMAGE=${{ secrets.DOCKER_USERNAME }}/${GITHUB_REPOSITORY#*/}
-          VERSION=latest
-          SHORTREF=${GITHUB_SHA::8}
+      - name: Docker meta
+        id: meta
+        uses: docker/metadata-action@v4
+        with:
+          # list of Docker images to use as base name for tags
+          images: |
+            ${{ secrets.DOCKER_USERNAME }}/${{ github.event.repository.name }}
 
-          # If this is git tag, use the tag name as a docker tag
-          if [[ $GITHUB_REF == refs/tags/* ]]; then
-            VERSION=${GITHUB_REF#refs/tags/v}
-          fi
-          TAGS="${DOCKER_IMAGE}:${VERSION},${DOCKER_IMAGE}:${SHORTREF}"
-
-          # If the VERSION looks like a version number, assume that
-          # this is the most recent version of the image and also
-          # tag it 'latest'.
-          if [[ $VERSION =~ ^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$ ]]; then
-            TAGS="$TAGS,${DOCKER_IMAGE}:latest"
-          fi
-
-          # Set output parameters.
-          echo ::set-output name=tags::${TAGS}
-          echo ::set-output name=docker_image::${DOCKER_IMAGE}
+          # generate Docker tags based on the following events/attributes
+          tags: |
+            type=schedule
+            type=ref,event=branch
+            type=ref,event=pr
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+            type=semver,pattern={{major}}
+            type=sha
+            type=raw,value=latest,enable={{is_default_branch}}
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@master
+        uses: docker/setup-qemu-action@v2
         with:
           platforms: all
 
       - name: Set up Docker Buildx
         id: buildx
-        uses: docker/setup-buildx-action@master
+        uses: docker/setup-buildx-action@v2
 
       - name: Available platforms
         run: echo ${{ steps.buildx.outputs.platforms }}
@@ -61,11 +65,14 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v4
         with:
           builder: ${{ steps.buildx.outputs.name }}
           context: .
           file: ./Dockerfile
-          platforms: linux/amd64,linux/arm64,linux/386,linux/arm/v7,linux/arm/v6
-          push: true
-          tags: ${{ steps.prep.outputs.tags }}
+          platforms: linux/amd64,linux/arm64
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
