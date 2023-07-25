@@ -106,7 +106,7 @@
                 "sha256:fb1558def481d84f03b45888473fc5a1f35747b5f334ef4e7a571bc0dfcb11f8",
                 "sha256:fd1ed388ea7fbed22c4968dd64bab0198de60750a25fe8c0c9d4bef5abe13824"
             ],
-            "index": "pypi",
+            "markers": "python_version >= '3.6'",
             "version": "==3.8.5"
         },
         "aiosignal": {
@@ -135,11 +135,11 @@
         },
         "certifi": {
             "hashes": [
-                "sha256:0f0d56dc5a6ad56fd4ba36484d6cc34451e1c6548c61daad8c320169f91eddc7",
-                "sha256:c6c2e98f5c7869efca1f8916fed228dd91539f9f1b444c314c06eef02980c716"
+                "sha256:539cc1d13202e33ca466e88b2807e29f4c13049d6d87031a3c110744495cb082",
+                "sha256:92d6037539857d8206b8f6ae472e8b77db8058fec5937a1ef3f54304089edbb9"
             ],
-            "markers": "python_version >= '3.6'",
-            "version": "==2023.5.7"
+            "index": "pypi",
+            "version": "==2023.7.22"
         },
         "charset-normalizer": {
             "hashes": [
@@ -315,25 +315,25 @@
         },
         "kasa-crypt": {
             "hashes": [
-                "sha256:15301f287477919a0e075cf6e72ff0da6adc664b2dae6581534d64de33297edf",
-                "sha256:2e6008d5f749e20c80ec8c422152786a63d6e04e516749ea2e4e049437468c0b",
-                "sha256:43de7456cad52def37409233bf04f72ce6d1450946a43af90168c8df72ff779b",
-                "sha256:58fcddf4de954b20c669a3ca64dd2bce6c3f09427e64e5401c208ddb622e347c",
-                "sha256:68200d62368b9c46975dc42f4414bf11685ad3e34b8467475c93c20454dbea48",
-                "sha256:89083635ea06cabbfa47b601dc9b3754e91ec5d0011bd62f96db2598be5348ec",
-                "sha256:928f53c0d9aa9c38edd08cfc31e7553defe02e216164d89152d097651aba64cd",
-                "sha256:9b1de64a14bf56509eedd45b098e44f5b41878dcaf5cf5dd129c9ed6d86e4516",
-                "sha256:b911edc554eb56bdc719453d39501ab7816061b1599badfbe46fb101556955bc",
-                "sha256:ba2d0866a9e17d17ad11fcbc3646212a41d9d59401b25db659fa4c90d6e4261e",
-                "sha256:cc1bf8f610e693e4efbb6e61ff6247d5b1e09d41fc29066a352c3389812f81d6",
-                "sha256:d843800b414374d68c47e91517f539c41fbf2b89cdf515df671f740ec55d8e9e",
-                "sha256:db8534648a8afec9ec91d5b635f2058bc097af5b25daecf0fd7e1cb346440f72",
-                "sha256:e195a1e978db696bf39a6b84af584c3ddd9ea93c448b3c4b69bb3509ec73221a",
-                "sha256:faa516b225de75ec05a63de79d8a838011ef36bb50bca56044935ed6ddf2b14a",
-                "sha256:fac9657d925b37e5343481e0ea24a9afd4700afbb6cdf7894dead2caf175bf5b"
+                "sha256:0ede1c2e460e8481705a159e13b6e437fa09ac24993e4a55edc26a962ffa436e",
+                "sha256:17c7938af96b30416eac6899689e9126c1d17f8f9a0f9dcf9f5cda86f084c60d",
+                "sha256:17f543d6952d3cd8aa094429870f9e3241f6035df2ecfd1b937cd6e7da5902c6",
+                "sha256:2f5231874d7973036b7afce432bb5b7404cdafbbb4d46363580aafcc5d26fde5",
+                "sha256:34ea41e7788062fc782bcfbe998f8c8d75308785e50c4e3f338dd4c2e488881f",
+                "sha256:4a6b15fd4832051b5f75db1eec8c273ba6e5a3122cd7030e0f92d0a90babc5ed",
+                "sha256:80c866a1f5d4ad419fcd454b2343a6ecfff8814195ab2caf108941971150ccd8",
+                "sha256:90f6c66b48db56631e7fe391f4e4934b0ddf6f41d31aa834c1baedc6c94b40d4",
+                "sha256:acc3fbb9adf7b80c310cf4bd7334d8bea8e19478b3a24447064093091acef93f",
+                "sha256:c497dbaf1a76b190d025753f146af3e8c948d037b7ca293f4eeebb9f9721f4f8",
+                "sha256:c7e9f3852f087bc5af2077aa95c31a96a6e2a1f89198a4474dd641e578cd1086",
+                "sha256:ccd10995596e746521a6c7be6ca39a87fae74ddd46558f1d6eea5ab221791107",
+                "sha256:da1f03dcc12261c10ae8c65bb02d809273ecdf1fc31a9dba58af1ae70cae970e",
+                "sha256:dfa84ee1449939d04e5e4a1c6931a2d429f7c1236a6c99eb3970afdf4723fe76",
+                "sha256:e7525a9770b0df0cde5f2b764dc5415eb5f136159477ffc85759f9dba21a1aff",
+                "sha256:fa1558b81cb36be015f211d88c69ead8f8708add1206e89672ffc7f06449c682"
             ],
             "markers": "python_version >= '3.7' and python_version < '4.0'",
-            "version": "==0.2.1"
+            "version": "==0.3.0"
         },
         "multidict": {
             "hashes": [
