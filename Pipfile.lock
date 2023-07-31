@@ -138,7 +138,7 @@
                 "sha256:539cc1d13202e33ca466e88b2807e29f4c13049d6d87031a3c110744495cb082",
                 "sha256:92d6037539857d8206b8f6ae472e8b77db8058fec5937a1ef3f54304089edbb9"
             ],
-            "index": "pypi",
+            "markers": "python_version >= '3.6'",
             "version": "==2023.7.22"
         },
         "charset-normalizer": {
@@ -307,11 +307,11 @@
         },
         "influxdb-client": {
             "hashes": [
-                "sha256:59654af4f7133f0ecf916411935b50f42e5c4bc125d218e193848f3615b57bfc",
-                "sha256:a5a8d840139431356235f6c786cd49740ed545b6e99be62ae3fb6ba5df1d982b"
+                "sha256:01ac44d6a16a965ae2e0fa3238e2edeb147c11935a89b61439c9a752458001da",
+                "sha256:30b03888846fab6fb740936b1a08af24841b791cf1b99773e3894dd1d64edf2f"
             ],
             "index": "pypi",
-            "version": "==1.36.1"
+            "version": "==1.37.0"
         },
         "kasa-crypt": {
             "hashes": [
