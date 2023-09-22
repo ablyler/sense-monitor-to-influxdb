@@ -1,6 +1,5 @@
-[![Dockerhub](https://img.shields.io/docker/pulls/ablyler/sense-monitor-to-influxdb)](https://hub.docker.com/repository/docker/ablyler/sense-monitor-to-influxdb/general)
-
 # sense-monitor-to-influxdb
+[![Dockerhub](https://img.shields.io/docker/pulls/ablyler/sense-monitor-to-influxdb)](https://hub.docker.com/repository/docker/ablyler/sense-monitor-to-influxdb/general)
 
 Pull instantaneous electricity usage readings from an Sense Monitor via a Web Socket and ship them to InfluxDB.
 
@@ -47,7 +46,7 @@ docker run -d \
 * `SENSE_MONITOR_NAME`: Name to use to identify multiple Sense monitors (this can be anything you want it to be)
 * `SENSE_USERNAME`: Sense username
 * `SENSE_PASSWORD`: Sense password
-* `INFLUXDB_URL`: InfluxDB url, including protocol and port,  eg. 'http://192.168.1.1:8086'
+* `INFLUXDB_URL`: InfluxDB url, including protocol and port,  eg. '<http://192.168.1.1:8086>'
 * `INFLUXDB_TOKEN`: InfluxDB token
 * `INFLUXDB_ORG`: InfluxDB org
 * `INFLUXDB_BUCKET`: InfluxDB bucket

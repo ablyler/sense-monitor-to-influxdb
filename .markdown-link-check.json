@@ -1,0 +1,10 @@
+{
+  "ignorePatterns": [
+    {
+      "pattern": "^http://192.168.1.1:8086"
+    }
+  ],
+  "retryOn429": true,
+  "retryCount": 5,
+  "aliveStatusCodes": [200, 203]
+}

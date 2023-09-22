@@ -7,7 +7,7 @@ name = "pypi"
 influxdb-client = "*"
 sense-energy = "*"
 python-decouple = "*"
-retry = "*"
+retry2 = "*"
 
 [dev-packages]
 

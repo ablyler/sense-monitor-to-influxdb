@@ -13,7 +13,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 # Upgrade pip, setuptools, wheel, aiohttp and pipenv
-RUN python3 -m pip install --upgrade pip setuptools wheel aiohttp pipenv
+RUN python3 -m pip install --no-cache-dir --upgrade pip setuptools wheel aiohttp pipenv
 
 # Create and switch to a new user
 RUN useradd --create-home appuser
@@ -22,14 +22,14 @@ USER appuser
 
 # Get Rust
 RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
-ENV PATH="/home/appuser/.cargo/bin:${PATH}"
+ENV PATH="/home/appuser/.local/bin:/home/appuser/.cargo/bin:${PATH}"
 
 # Install application into container
 COPY . .
 
 # Install the requirements
-RUN pipenv requirements > requirements.txt
-RUN pip3 install --no-cache-dir -r requirements.txt
+RUN pipenv requirements > requirements.txt \
+    && pip3 install --no-cache-dir -r requirements.txt
 
 # Run the application
 CMD ["python3", "sense-monitor-to-influxdb.py"]
