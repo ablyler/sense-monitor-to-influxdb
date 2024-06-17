@@ -387,12 +387,12 @@
         },
         "influxdb-client": {
             "hashes": [
-                "sha256:0161b963f221d5c1769202f41ff55f5d79e00e6dc24e2a0729c82a1e131956ee",
-                "sha256:f5e877feb671eda41e2b5c98ed1dc8ec3327fd8991360dc614822119cda06491"
+                "sha256:ae2614d891baed52c0ae8f6194a04ee5b1c6422f6061318a3639fe63b7671b25",
+                "sha256:f079e63018f521024118bc0141b6403c65506711e2e6e93500f8e69f1675dc38"
             ],
             "index": "pypi",
             "markers": "python_version >= '3.7'",
-            "version": "==1.42.0"
+            "version": "==1.43.0"
         },
         "kasa-crypt": {
             "hashes": [
