@@ -133,11 +133,11 @@
         },
         "certifi": {
             "hashes": [
-                "sha256:5a1e7645bc0ec61a09e26c36f6106dd4cf40c6db3a1fb6352b0244e7fb057c7b",
-                "sha256:c198e21b1289c2ab85ee4e67bb4b4ef3ead0892059901a8d5b622f24a1101e90"
+                "sha256:922820b53db7a7257ffbda3f597266d435245903d80737e34f8a45ff3e3230d8",
+                "sha256:bec941d2aa8195e248a60b31ff9f0558284cf01a52591ceda73ea9afffd69fd9"
             ],
             "markers": "python_version >= '3.6'",
-            "version": "==2024.7.4"
+            "version": "==2024.8.30"
         },
         "charset-normalizer": {
             "hashes": [
@@ -395,12 +395,12 @@
         },
         "influxdb-client": {
             "hashes": [
-                "sha256:8cde8c1e26133c1c686543decc0c3935832eea282c4513db0245772c2fcffeed",
-                "sha256:e24aa0a838f58487b2382c654fa8183fb5ca504af70438a42ca20dd79669a2be"
+                "sha256:5054cf0a9ac67e4e00dcb8bdef19b846c7972b6cd9b9e9fa12b1cff9cc586fc9",
+                "sha256:549f2c0ad458bbf79de1291ad5b07b823d80a3bcdbe77b4f0b436461aa008e2b"
             ],
             "index": "pypi",
             "markers": "python_version >= '3.7'",
-            "version": "==1.45.0"
+            "version": "==1.47.0"
         },
         "kasa-crypt": {
             "hashes": [
@@ -633,11 +633,11 @@
         },
         "setuptools": {
             "hashes": [
-                "sha256:5a03e1860cf56bb6ef48ce186b0e557fdba433237481a9a625176c2831be15d1",
-                "sha256:8d243eff56d095e5817f796ede6ae32941278f542e0f941867cc05ae52b162ec"
+                "sha256:753bb6ebf1f465a1912e19ed1d41f403a79173a9acf66a42e7e6aec45c3c16ec",
+                "sha256:a7fcb66f68b4d9e8e66b42f9876150a3371558f98fa32222ffaa5bced76406f8"
             ],
             "markers": "python_version >= '3.8'",
-            "version": "==72.1.0"
+            "version": "==75.2.0"
         },
         "six": {
             "hashes": [
@@ -657,11 +657,11 @@
         },
         "urllib3": {
             "hashes": [
-                "sha256:a448b2f64d686155468037e1ace9f2d2199776e17f0a46610480d311f73e3472",
-                "sha256:dd505485549a7a552833da5e6063639d0d177c04f23bc3864e41e5dc5f612168"
+                "sha256:ca899ca043dcb1bafa3e262d73aa25c465bfb49e0bd9dd5d59f1d0acba2f8fac",
+                "sha256:e7d814a81dad81e6caf2ec9fdedb284ecc9c73076b62654547cc64ccdcae26e9"
             ],
             "markers": "python_version >= '3.8'",
-            "version": "==2.2.2"
+            "version": "==2.2.3"
         },
         "websocket-client": {
             "hashes": [
