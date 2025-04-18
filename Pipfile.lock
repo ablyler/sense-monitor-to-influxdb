@@ -404,12 +404,12 @@
         },
         "influxdb-client": {
             "hashes": [
-                "sha256:5054cf0a9ac67e4e00dcb8bdef19b846c7972b6cd9b9e9fa12b1cff9cc586fc9",
-                "sha256:549f2c0ad458bbf79de1291ad5b07b823d80a3bcdbe77b4f0b436461aa008e2b"
+                "sha256:410db15db761df7ea98adb333c7a03f05bcc2ceef4830cefb7071b888be2b827",
+                "sha256:414d5b5eff7d2b6b453f33e2826ea9872ea04a11996ba9c8604b0c1df57c8559"
             ],
             "index": "pypi",
             "markers": "python_version >= '3.7'",
-            "version": "==1.47.0"
+            "version": "==1.48.0"
         },
         "kasa-crypt": {
             "hashes": [
@@ -781,11 +781,11 @@
         },
         "setuptools": {
             "hashes": [
-                "sha256:753bb6ebf1f465a1912e19ed1d41f403a79173a9acf66a42e7e6aec45c3c16ec",
-                "sha256:a7fcb66f68b4d9e8e66b42f9876150a3371558f98fa32222ffaa5bced76406f8"
+                "sha256:8199222558df7c86216af4f84c30e9b34a61d8ba19366cc914424cdbd28252f6",
+                "sha256:ce74b49e8f7110f9bf04883b730f4765b774ef3ef28f722cce7c273d253aaf7d"
             ],
-            "markers": "python_version >= '3.8'",
-            "version": "==75.2.0"
+            "markers": "python_version >= '3.9'",
+            "version": "==75.6.0"
         },
         "six": {
             "hashes": [
