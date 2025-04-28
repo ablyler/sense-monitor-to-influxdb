@@ -14,9 +14,9 @@ influxdb_org = config("INFLUXDB_ORG")
 influxdb_bucket = config("INFLUXDB_BUCKET")
 
 influxdb_client = InfluxDBClient(
-    url=influxdb_url,  # pyright: ignore [reportGeneralTypeIssues]
-    token=influxdb_token,  # pyright: ignore [reportGeneralTypeIssues]
-    org=influxdb_org,  # pyright: ignore [reportGeneralTypeIssues]
+    url=influxdb_url,  # type: ignore
+    token=influxdb_token,  # type: ignore
+    org=influxdb_org,  # type: ignore
 )
 write_api = influxdb_client.write_api()
 
@@ -39,8 +39,8 @@ def realtime_callback(payload):
             .field("watts", channel)
         )
     write_api.write(
-        influxdb_bucket,  # pyright: ignore [reportGeneralTypeIssues]
-        influxdb_org,  # pyright: ignore [reportGeneralTypeIssues]
+        influxdb_bucket,  # type: ignore
+        influxdb_org,  # type: ignore
         records,
     )
 
