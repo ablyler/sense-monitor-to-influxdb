@@ -134,7 +134,7 @@ jobs:
 
       - name: Docker meta
         id: docker_meta
-        uses: docker/metadata-action@v5
+        uses: docker/metadata-action@v6
         with:
           images: |
             ${{ needs.meta.outputs.dockerhub_owner }}/${{ needs.meta.outputs.bin_name }}
