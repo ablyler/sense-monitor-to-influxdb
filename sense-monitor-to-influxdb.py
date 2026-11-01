@@ -4,8 +4,9 @@ import time
 
 import aiohttp
 from decouple import config
-from influxdb_client import InfluxDBClient, Point
-from sense_energy import ASyncSenseable
+from influxdb_client.client.influxdb_client import InfluxDBClient
+from influxdb_client.client.write.point import Point
+from sense_energy.asyncsenseable import ASyncSenseable
 
 sense_monitor_name = str(config("SENSE_MONITOR_NAME"))
 sense_username = str(config("SENSE_USERNAME"))
