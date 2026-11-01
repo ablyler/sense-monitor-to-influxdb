@@ -1,8 +1,11 @@
 import asyncio
+import logging
+import time
+
+import aiohttp
 
 from decouple import config
 from influxdb_client import InfluxDBClient, Point
-from retry import retry
 from sense_energy import ASyncSenseable
 
 sense_monitor_name = config("SENSE_MONITOR_NAME")
@@ -45,11 +48,52 @@ def realtime_callback(payload):
     )
 
 
-@retry()
+logging.basicConfig(
+    level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s"
+)
+log = logging.getLogger("sense-monitor")
+
+WSS_TIMEOUT = config("SENSE_WSS_TIMEOUT", default=30, cast=int)
+API_TIMEOUT = config("SENSE_API_TIMEOUT", default=30, cast=int)
+MIN_BACKOFF = 5
+MAX_BACKOFF = 300
+# A stream that stays up this long counts as healthy and resets the backoff.
+HEALTHY_RUN_SECONDS = 300
+
+
+async def stream_once():
+    async with aiohttp.ClientSession() as session:
+        sense = ASyncSenseable(
+            api_timeout=API_TIMEOUT,
+            wss_timeout=WSS_TIMEOUT,
+            client_session=session,
+        )
+        await sense.authenticate(sense_username, sense_password)
+        log.info("Authenticated to Sense; streaming realtime data")
+        await sense.async_realtime_stream(realtime_callback)
+
+
 async def main():
-    sense = ASyncSenseable()
-    await sense.authenticate(sense_username, sense_password)
-    await sense.async_realtime_stream(realtime_callback)
+    backoff = MIN_BACKOFF
+    while True:
+        started = time.monotonic()
+        try:
+            await stream_once()
+            log.warning("Realtime stream ended; reconnecting")
+        except asyncio.CancelledError:
+            raise
+        except Exception as ex:  # reconnect on any API/network failure
+            log.warning("Realtime stream failed: %r", ex)
+        if time.monotonic() - started >= HEALTHY_RUN_SECONDS:
+            backoff = MIN_BACKOFF
+        log.info("Reconnecting in %ss", backoff)
+        await asyncio.sleep(backoff)
+        backoff = min(backoff * 2, MAX_BACKOFF)
 
 
-asyncio.run(main())
+if __name__ == "__main__":
+    try:
+        asyncio.run(main())
+    finally:
+        write_api.close()
+        influxdb_client.close()
