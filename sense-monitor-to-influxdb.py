@@ -3,18 +3,17 @@ import logging
 import time
 
 import aiohttp
-
 from decouple import config
 from influxdb_client import InfluxDBClient, Point
 from sense_energy import ASyncSenseable
 
-sense_monitor_name = config("SENSE_MONITOR_NAME")
-sense_username = config("SENSE_USERNAME")
-sense_password = config("SENSE_PASSWORD")
-influxdb_url = config("INFLUXDB_URL")
-influxdb_token = config("INFLUXDB_TOKEN")
-influxdb_org = config("INFLUXDB_ORG")
-influxdb_bucket = config("INFLUXDB_BUCKET")
+sense_monitor_name = str(config("SENSE_MONITOR_NAME"))
+sense_username = str(config("SENSE_USERNAME"))
+sense_password = str(config("SENSE_PASSWORD"))
+influxdb_url = str(config("INFLUXDB_URL"))
+influxdb_token = str(config("INFLUXDB_TOKEN"))
+influxdb_org = str(config("INFLUXDB_ORG"))
+influxdb_bucket = str(config("INFLUXDB_BUCKET"))
 
 influxdb_client = InfluxDBClient(
     url=influxdb_url,  # type: ignore
@@ -48,9 +47,8 @@ def realtime_callback(payload):
     )
 
 
-logging.basicConfig(
-    level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s"
-)
+LOG_FORMAT = "%(asctime)s %(levelname)s %(message)s"
+logging.basicConfig(level=logging.INFO, format=LOG_FORMAT)
 log = logging.getLogger("sense-monitor")
 
 WSS_TIMEOUT = config("SENSE_WSS_TIMEOUT", default=30, cast=int)
